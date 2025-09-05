@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Call Us — eCommerce</title>
+  <meta name="description" content="Quick 'Call Us' contact widget for e-commerce sites — click-to-call, WhatsApp, and callback form." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#0d6efd;
+      --accent-2:#0b8a5f;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --radius:14px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111;font-size:15px}
+    .container{max-width:1100px;margin:28px auto;padding:20px}
+
+    
+    .contact-card{display:flex;gap:20px;align-items:center;background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--card));border-radius:var(--radius);box-shadow:0 8px 30px rgba(13,37,63,0.08);padding:18px}
+    .logo{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6c63ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px}
+
+    .info{flex:1;min-width:0}
+    .headline{display:flex;align-items:baseline;gap:12px}
+    .headline h2{margin:0;font-size:1.05rem}
+    .badge{background:rgba(13,110,253,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem}
+
+    .phone{margin-top:8px;display:flex;gap:12px;align-items:center}
+    .phone .number{font-weight:700;font-size:1.05rem}
+    .small{color:var(--muted);font-size:0.95rem}
+
+    .actions{display:flex;gap:10px;margin-left:18px}
+    .btn{border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:10px}
+    .btn-call{background:linear-gradient(90deg,var(--accent),#4f9eff);color:white}
+    .btn-whatsapp{background:linear-gradient(90deg,var(--accent-2),#19a974);color:white}
+    .btn-copy{background:transparent;border:1px solid rgba(16,24,40,0.06);}
+
+    
+    .callback{margin-top:16px;display:flex;gap:12px;align-items:flex-start}
+    .callback form{flex:1;background:transparent;padding:0;margin:0;display:flex;gap:8px;flex-wrap:wrap}
+    .field{flex:1;min-width:160px}
+    input,select{width:100%;padding:10px;border-radius:10px;border:1px solid #e6eef9;background:white}
+    .submit{background:var(--accent);color:white;padding:10px 18px;border-radius:10px;border:0}
+
+    .meta{margin-top:12px;color:var(--muted);font-size:0.92rem}
+
+    
+    @media (max-width:720px){
+      .contact-card{flex-direction:column;align-items:stretch}
+      .actions{width:100%;justify-content:space-between}
+      .callback form{flex-direction:column}
+      .logo{width:72px;height:72px}
+    }
+
+    .btn:active{transform:translateY(1px)}
+    .copied{position:fixed;right:18px;bottom:18px;background:#111;color:white;padding:10px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,0.12);font-weight:600}
+
+  
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"Your Store Name",
+    "telephone":"+201001234567",
+    "image":"",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Cairo",
+      "addressCountry":"EG"
+    },
+    "openingHours":"Mo-Su 09:00-21:00"
+  }
+  </script>
+</head>
+<body>
+  <main class="container">
+    <div class="contact-card" role="region" aria-labelledby="contact-title">
+      <div class="logo" aria-hidden="true">Shop</div>
+
+      <div class="info">
+        <div class="headline">
+          <h2 id="contact-title">Need help? Call us or request a callback</h2>
+          <span class="badge" aria-hidden="true">Fast support</span>
+        </div>
+
+        <p class="meta">We're online 9:00 — 21:00 (local time). For urgent matters, use the phone or WhatsApp.</p>
+
+        <div class="phone" aria-label="store phone">
+          <div>
+            <div class="number" id="phone-number">01559828825</div>
+            <div class="small">Click to call from mobile — or copy the number</div>
+          </div>
+
+          <div class="actions" aria-hidden="false">
+            <a class="btn btn-call" href="tel:+201001234567" id="callBtn">
+              <!-- phone emoji as icon -->
+              <span aria-hidden="true">📞</span>
+              Call now
+            </a>
+
+            <a class="btn btn-whatsapp" id="waBtn" target="_blank" rel="noopener noreferrer"
+               href="http://meet.google.com/fyq-qkvj-wac">
+              <span aria-hidden="true">💬</span>
+              WhatsApp
+            </a>
+
+            <button class="btn btn-copy" id="copyBtn" aria-live="polite" title="Copy phone number">
+              <span aria-hidden="true">📋</span>
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="callback" aria-label="callback request">
+          <form id="callbackForm" autocomplete="on">
+            <label class="sr-only" for="name">Your name</label>
+            <input class="field" id="name" name="name" placeholder="Your name" required>
+
+            <label class="sr-only" for="phone">Phone number</label>
+            <input class="field" id="phone" name="phone" placeholder="Phone (+20)" required pattern="^\+?\d{7,15}$">
+
+            <label class="sr-only" for="when">Preferred time</label>
+            <select id="when" name="when" class="field">
+              <option value="asap">Call me ASAP</option>
+              <option value="morning">Morning (9–12)</option>
+              <option value="afternoon">Afternoon (12–17)</option>
+              <option value="evening">Evening (17–21)</option>
+            </select>
+
+            <button type="submit" class="submit" id="submitBtn">Request callback</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="meta">Tip: replace the phone number and WhatsApp link in the HTML. To accept callback requests on your server, change the <code>submitHandler</code> in the JS to POST to your API endpoint.</p>
+  </main>
+
+  <div id="copiedToast" class="copied" role="status" aria-live="polite" style="display:none">Copied!</div>
+
+  <script>
+    // --- Config: change these to your real values ---
+    const PHONE = '01559828825';
+    const WHATSAPP_TEXT = encodeURIComponent('Hi, I need help with my order');
+    const CALLBACK_ENDPOINT = null; // e.g. '/api/callback' or full URL. If null, form will be simulated.
+    // ----------------------------------------------
+
+    document.getElementById('phone-number').textContent = PHONE;
+    document.getElementById('callBtn').href = 'tel:' + PHONE.replace(/\s+/g,'');
+    document.getElementById('waBtn').href = 'https://wa.me/' + PHONE.replace(/[^\d]/g,'') + '?text=' + WHATSAPP_TEXT;
+
+    const copyBtn = document.getElementById('copyBtn');
+    const copiedToast = document.getElementById('copiedToast');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(PHONE);
+        showCopied();
+      } catch (e) {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = PHONE; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); showCopied(); } finally { ta.remove(); }
+      }
+    });
+
+    function showCopied(){
+      copiedToast.style.display = 'block';
+      setTimeout(()=>{copiedToast.style.display='none'},1800);
+    }
+
+    // Callback form handling (client-only demo). Replace with real POST to your server.
+    const form = document.getElementById('callbackForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        when: form.when.value
+      };
+
+      // basic validation
+      if(!/^\+?\d{7,15}$/.test(data.phone)){
+        alert('Please enter a valid phone number (digits, optional leading +).');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true; submitBtn.textContent = 'Sending...';
+
+      try{
+        if(CALLBACK_ENDPOINT){
+          // real request to your server
+          const resp = await fetch(CALLBACK_ENDPOINT, {
+            method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)
+          });
+          if(!resp.ok) throw new Error('Network response was not ok');
+          alert('Thanks! We will call you shortly.');
+          form.reset();
+        } else {
+          // simulated success (demo)
+          await new Promise(r=>setTimeout(r,900));
+          alert('Demo: callback request received. Replace CALLBACK_ENDPOINT in the script to connect to your server.');
+          form.reset();
+        }
+      }catch(err){
+        console.error(err);
+        alert('Could not send request — please try calling or using WhatsApp.');
+      }finally{
+        submitBtn.disabled = false; submitBtn.textContent = 'Request callback';
+      }
+    });
+
+    // Accessibility: allow pressing Enter on the Copy button to trigger copy
+    copyBtn.addEventListener('keydown', (ev)=>{ if(ev.key === 'Enter') copyBtn.click(); });
+  </script>
+</body>
+</html>

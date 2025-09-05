@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر إلكتروني - المنتجات</title>
+    <link rel="stylesheet" href="tes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+   
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">متجر<span>إلكتروني</span></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن منتجات...">
+                    <!-- <button><i class="bi bi-search-heart" style="color: paleturquoise; font-size: 2rem;"></i> -->
+                        <button style="background: none; border: none; cursor: pointer;">
+  <i class="bi bi-search-heart animated-icon"></i>
+</button>
+
+
+</button>
+                </div>
+                 <div class="header-actions">
+                 <div class="header-action-item">
+                <i class="bi bi-bag-heart-fill" style="color: hotpink;"></i>
+
+                 </div>
+                     
+    <div class="header-action-item" id="user-icon">
+<i class="bi bi-people" style="color: pink;"></i> 
+<span style="color: blue;">نموذج تسجيل الدخول</span>
+
+    </div>
+   
+                    
+                    
+                    <div class="header-action-item">
+                     <i class="bi bi-cart" style="color: blue;"></i>
+
+                        <span class="cart-count">3</span>
+                    </div>
+                    
+                </div>
+                  
+                  
+             
+            <nav>
+                <ul>
+                    <li><a href="testproj.html">الرئيسية</a></li>
+                    <li><a href="#">جميع المنتجات</a></li>
+                    <li><a href="#">الفئات</a></li>
+                    <li><a href="#">العروض</a></li>
+                    <li><a href="#">منتجات جديدة</a></li>
+                    <li><a href="c:\Users\skynet\Desktop\my first free project with eng Mostafa\call.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+    <!-- <div class="header-action-item" id="user-icon">
+    <i class="bi bi-people"></i>
+</div>  -->
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="filters">
+                <h2 class="filter-title">تصفية المنتجات</h2>
+                <div class="filter-group">
+                    <label for="category">الفئة:</label>
+                    <select id="category">
+                        <option value="">جميع الفئات</option>
+                        <option value="electronics">إلكترونيات</option>
+                        <option value="clothing">ملابس</option>
+                        <option value="home">منزلية</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price">نطاق السعر:</label>
+                    <select id="price">
+                        <option value="">جميع الأسعار</option>
+                        <option value="0-50">حتى 50 درهم</option>
+                        <option value="50-100">50 - 100 درهم</option>
+                        <option value="100-200">100 - 200 درهم</option>
+                        <option value="200+">أكثر من 200 درهم</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort">ترتيب حسب:</label>
+                    <select id="sort">
+                        <option value="newest">الأحدث</option>
+                        <option value="price-low">السعر: من الأقل للأعلى</option>
+                        <option value="price-high">السعر: من الأعلى للأقل</option>
+                        <option value="popular">الأكثر شيوعاً</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="products-container" class="products-grid">
+                <div class="loading">
+                 <i class="bi bi-arrow-repeat"></i>جارِ تحميل المنتجات...
+                </div>
+            </div>
+
+            <div class="pagination" id="pagination">
+       
+            </div>
+        </div>
+    </main>
+
+
+
+<div id="auth-modal" class="auth-modal">
+    <div class="auth-content">
+        <span class="close-btn" id="close-auth">&times;</span>
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+            <button id="login-tab" class="active">تسجيل دخول</button>
+            <button id="signup-tab">إنشاء حساب</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+            <h2>تسجيل دخول</h2>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <input type="password" placeholder="كلمة المرور" required>
+            <button type="submit">دخول</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" class="auth-form hidden">
+            <h2>إنشاء حساب</h2>
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <input type="password" placeholder="كلمة المرور" required>
+            <button type="submit">تسجيل</button>
+        </form>
+    </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>متجر إلكتروني</h3>
+                    <p>نقدم لكم أحدث المنتجات بأفضل الأسعار وخدمة التوصيل السريع إلى باب منزلكم.</p>
+                    <div class="social-icons">
+                        <a href="" class="social-icon"><i class="bi bi-facebook" style="color:#1877F2; font-size:2rem;"></i>
+</a>
+                        <a href="https://wa.me/+201113027315" class="social-icon"><i class="bi bi-whatsapp" style="color:#25D366; font-size:2rem;"></i>
+</a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin" style="color:#0A66C2; font-size:2rem;"></i>
+</a>
+                       
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>المتجر</h3>
+                    <ul>
+                        <li><a href="#">منتجات جديدة</a></li>
+                        <li><a href="#">أفضل المبيعات</a></li>
+                        <li><a href="#">العروض الخاصة</a></li>
+                        <li><a href="#">المتجر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>معلومات</h3>
+                    <ul>
+                        <li><a href="#">عن المتجر</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">أسئلة شائعة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <p>الإمارات العربية المتحدة، دبي</p>
+                    <p>هاتف: 01559828825  </p>
+                    <p>البريد الإلكتروني: a.mohamed3089@su.edu.eg</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;  2025 متجر إلكتروني. جميع الحقوق محفوظة.</p>
+                   <p>&copy; المطور آيات على </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="tes.js">
+        
+     
+    </script>
+    <script src="test2.js"></script>
+</body>
+</html>
